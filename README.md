@@ -23,7 +23,7 @@
 
 ## tips：
 
-* ActorModel的隐藏层和输出层进行`param_attr=fluid.initializer.Normal(loc=0.0, scale=0.1)`初始化操作后，似乎可以在更少的训练轮次后收敛。
+* 在不改变ActorModel的网络结构的情况下，对隐藏层和输出层进行`param_attr=fluid.initializer.Normal(loc=0.0, scale=0.1)`初始化操作后，似乎可以在更少的训练轮次后收敛。
 
 * 参考Homework_lesson5_ddpg里面的答案ActorModel的代码是含2个隐藏层，再加上一层16个维度输入层，一层4个维度的输出层，故ActorModel的网络结构为 16x64x64x4，
  其参数个数为16x64+64x64+64x4 = 5376
@@ -37,5 +37,7 @@
   5维神经元的输出，其中一个维度代表基本值，其他4个维度代表浮动值。
 
 * 更少的参数，搜索空间更小，运气好的话应该可以快速收敛。
+
+* 但经过试验"velocity_control"任务上面，ActorModel的网络结构为 16x64x64x5 并进行`param_attr=fluid.initializer.Normal(loc=0.0, scale=0.1)`初始化操作后，可能收敛的更快。
       
        
