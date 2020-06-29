@@ -1,4 +1,4 @@
-## 用强化学习DDPG算法控制四轴飞行器（velocity_control）
+# 用强化学习DDPG算法控制四轴飞行器（velocity_control）
 
 ## 仿真环境：RLSchool
 
@@ -25,7 +25,7 @@
 
 * ActorModel的隐藏层和输出层进行`param_attr=fluid.initializer.Normal(loc=0.0, scale=0.1)`初始化操作后，似乎可以在更少的训练轮次后收敛。
 
-* 标准答案的ActorModel的代码是含2个隐藏层，再加上一层16个维度输入层，一层4个维度的输出层，故ActorModel的网络结构为 16x64x64x4，
+* 参考Homework_lesson5_ddpg里面的答案ActorModel的代码是含2个隐藏层，再加上一层16个维度输入层，一层4个维度的输出层，故ActorModel的网络结构为 16x64x64x4，
  其参数个数为16x64+64x64+64x4 = 5376
  
 * 此次上传到github上的ActorModel的代码是含1个隐藏层，再加上一层16个维度输入层，一层5个维度的输出层，一层4个维度的转化层，故ActorModel的网络结构相当于 16x100x5x4，
